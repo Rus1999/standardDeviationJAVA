@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-08-11 10:49:16 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtSkhTQjJKMUE7MjU2NC0wNy0wNzswMzo0ODo1MSBQTTsyNjU0"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtSkhTQjJKMUE7MjAyMS0wOC0xMTsxMDo0OToxNiBQTTsxMjsyNzk2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3619;&#3633;&#3610;&#3592;&#3635;&#3609;&#3623;&#3609;&#3586;&#3657;&#3629;&#3617;&#3641;&#3621;"/>
+            <declare name="numSample" type="Integer" array="False" size=""/>
+            <comment text="&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3619;&#3633;&#3610;&#3586;&#3657;&#3629;&#3617;&#3641;&#3621;&#3648;&#3611;&#3655;&#3609;&#3592;&#3635;&#3609;&#3623;&#3609;&#3592;&#3619;&#3636;&#3591;"/>
+            <declare name="number" type="Real" array="False" size=""/>
+            <comment text="&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3609;&#3633;&#3610;&#3619;&#3629;&#3610;&#3621;&#3641;&#3611;"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <comment text="&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3648;&#3585;&#3655;&#3610;&#3588;&#3656;&#3634; Summation X"/>
+            <declare name="sumNum" type="Real" array="False" size=""/>
+            <comment text="&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3648;&#3585;&#3655;&#3610;&#3588;&#3656;&#3634; Summation X Squared"/>
+            <declare name="sumNumpow2" type="Real" array="False" size=""/>
+            <comment text="&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3648;&#3585;&#3655;&#3610;&#3588;&#3656;&#3634;&#3612;&#3621;&#3621;&#3633;&#3614;&#3608;&#3660; (&#3626;&#3656;&#3623;&#3609;&#3648;&#3610;&#3637;&#3656;&#3618;&#3591;&#3648;&#3610;&#3609;&#3617;&#3634;&#3605;&#3619;&#3600;&#3634;&#3609;)&#13;&#10;"/>
+            <declare name="stanDev" type="Real" array="False" size=""/>
+            <assign variable="sumNum" expression="0"/>
+            <assign variable="sumNumpow2" expression="0"/>
+            <assign variable="stanDev" expression="0"/>
+            <assign variable="i" expression="0"/>
+            <comment text="&#3619;&#3633;&#3610;&#3592;&#3635;&#3609;&#3623;&#3609;&#3605;&#3633;&#3623;&#3648;&#3621;&#3586;&#3607;&#3637;&#3656;&#3605;&#3657;&#3629;&#3591;&#3585;&#3619;&#3629;&#3585;"/>
+            <output expression="&quot;Please Enter quantity of number&quot;" newline="True"/>
+            <input variable="numSample"/>
+            <comment text="&#3609;&#3635;&#3605;&#3633;&#3623;&#3648;&#3621;&#3586;&#3607;&#3637;&#3656;&#3585;&#3619;&#3629;&#3585;&#3617;&#3634;&#3585;&#3635;&#3627;&#3609;&#3604;&#3586;&#3609;&#3634;&#3604;&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3629;&#3634;&#3648;&#3619;&#3618;&#3660;"/>
+            <declare name="dat" type="Real" array="True" size="numSample"/>
+            <comment text="&#3621;&#3641;&#3611;&#3619;&#3633;&#3610;&#3588;&#3656;&#3634;&#3617;&#3634;&#3648;&#3585;&#3655;&#3610;&#3651;&#3609;&#3605;&#3633;&#3623;&#3649;&#3611;&#3619;&#3629;&#3634;&#3648;&#3619;&#3618;&#3660;"/>
+            <while expression="i &lt;= (numSample-1)">
+                <output expression="&quot;Enter Number No.&quot;" newline="False"/>
+                <output expression="i+1" newline="False"/>
+                <input variable="number"/>
+                <assign variable="dat[i]" expression="number"/>
+                <comment text="&#3588;&#3635;&#3609;&#3623;&#3603; Summation X"/>
+                <assign variable="sumNum" expression="sumNum + dat[i]"/>
+                <comment text="&#3588;&#3635;&#3609;&#3623;&#3603; Summation X squared"/>
+                <assign variable="sumNumpow2" expression="sumNumpow2 + (dat[i]*dat[i])"/>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <comment text="&#3588;&#3635;&#3609;&#3623;&#3603;&#3605;&#3634;&#3617;&#3626;&#3641;&#3605;&#3619;&#3588;&#3635;&#3609;&#3623;&#3603;&#3626;&#3656;&#3623;&#3609;&#3648;&#3610;&#3637;&#3656;&#3618;&#3591;&#3648;&#3610;&#3609;&#3617;&#3634;&#3605;&#3619;&#3600;&#3634;&#3609;"/>
+            <assign variable="stanDev" expression="Sqrt((numSample*(sumNumpow2)-(sumNum * sumNum))/(numSample*(numSample-1)))"/>
+            <output expression="stanDev" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
